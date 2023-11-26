@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'reg.css' %}">
+<body>
+<h1>Hotel and Rating Entry Form</h1>
+
+<form action="" method="post">
+  {% csrf_token %} Hotel:
+  <input type="text" name="name" />
+  Rating:
+  <input type="number" name="rating" />
+  <input type="submit" value="Submit" />
+<br><br>
+</form>
+  <table border="1">
+    <th>ID</th><th>Hotel</th><th>Rating</th>
+    {% for hotel in hotel_ratings %}
+      <tr>
+      <td>{{ hotel.id }}</td>
+      <td>{{ hotel.name }}</td>
+      <td>{{ hotel.rating }}</td>
+      <td><a href="delete/{{ hotel.id }}">delete</a></td>
+      <td><a href="update_view/{{ hotel.id }}">update</a></td>
+      </tr>
+    {% endfor %}
+    </table>
+  
+</body>
+    
+</html>

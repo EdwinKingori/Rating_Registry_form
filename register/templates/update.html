@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="{% static 'reg.css' %}" />
+  <body>
+    <h1>Update</h1>
+
+    <form action="update/{{ hotel.id }}" method="post">
+      {% csrf_token %} Hotel:<br />
+      <input name="name" value="{{ hotel.name }}" />
+      Rating:
+      <input type="number" name="rating" value="{{ hotel.rating }}" /> 
+      <input type="submit" value="Submit" />
+    </form>
+
+  </body>
+</html>
